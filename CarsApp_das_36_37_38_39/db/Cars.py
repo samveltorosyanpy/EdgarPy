@@ -1,20 +1,23 @@
 import os,json
 
-class Cars:
+class CarsClass:
     def __init__(self):
-        self.cars = os.getcwd() + "/cars.json"
-        with open(self.cars, 'r') as file:
+        self.path = os.getcwd() + "/db/cars.json"
+        with open(self.path, 'r') as file:
             cars_text = file.read()
             self.cars = json.loads(cars_text)
 
     def cars_update(self):
-        new_cars = json.dumps(self.cars)
-        with open(self.cars, 'w') as file:
+        new_cars = json.dumps(self.cars, indent=4)
+
+        with open(self.path, 'w') as file:
             file.write(new_cars)
+
 
     def creator_new_cars(self, create_at,name,model,description):
         new_cars_id = self.cars['cars'][-1]['id'] + 1
         self.cars['cars'].append({"id" : new_cars_id, "create_at" : create_at, "name" : name, "model" : model, "description" : description})
+        self.cars_update()
 
 
     def get_cars_by_id(self, cars_id):
@@ -26,7 +29,12 @@ class Cars:
     def get_cars_by_name(self, name):
         for car in self.cars['cars']:
             if car['name'] == name:
-                return (f" Car creat_at: -> {car['create_at']} \n Car name: -> {car['name']} \n Car model: -> {car['model']} \n Car description: -> {car['description']}")
+                return (f"""
+                Car creat_at: -> {car['create_at']}
+                Car name: -> {car['name']}
+                Car model: -> {car['model']}
+                Car description: -> {car['description']}
+                """)
 
     def get_model_by_create_at(self,create_at):
         for car in self.cars['cars']:

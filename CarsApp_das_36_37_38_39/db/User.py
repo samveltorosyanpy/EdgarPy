@@ -1,6 +1,5 @@
 import os, json
 
-
 class UserClass:
     def __init__(self):
         self.path = os.getcwd() + "/db/users.json"
@@ -15,7 +14,7 @@ class UserClass:
         return logins
 
     def update(self):
-        new_data = json.dumps(self.data)
+        new_data = json.dumps(self.data, indent=4)
 
         with open(self.path, 'w') as fail:
             fail.write(new_data)

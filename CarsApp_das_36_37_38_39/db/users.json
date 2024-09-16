@@ -1,32 +1,46 @@
 {
-  "users": [
-    {
-      "id": 0,
-      "login": "Samvel",
-      "password": "Admin0000001",
-      "phone": "099999991",
-      "date": "2000-08-01"
-    },
-    {
-      "id": 1,
-      "login": "Samvel001",
-      "password": "Torosyan",
-      "phone": "088888888",
-      "date": "2000-08-26"
-    },
-    {
-      "id": 2,
-      "login": "Samvel000001",
-      "password": "Torosyan",
-      "phone": "99999999",
-      "date": "2000-08-26"
-    },
-    {
-      "id": 3,
-      "login": "AAAAAA",
-      "password": "Admin001",
-      "phone": "99999999",
-      "date": "2000-08-26"
-    }
-  ]
+    "users": [
+        {
+            "id": 0,
+            "login": "Samvel",
+            "password": "Admin0000001",
+            "phone": "099999991",
+            "date": "2000-08-01"
+        },
+        {
+            "id": 1,
+            "login": "Samvel001",
+            "password": "Torosyan",
+            "phone": "088888888",
+            "date": "2000-08-26"
+        },
+        {
+            "id": 2,
+            "login": "Samvel000001",
+            "password": "Torosyan",
+            "phone": "99999999",
+            "date": "2000-08-26"
+        },
+        {
+            "id": 3,
+            "login": "AAAAAA",
+            "password": "Admin001",
+            "phone": "99999999",
+            "date": "2000-08-26"
+        },
+        {
+            "id": 4,
+            "login": "edgars",
+            "password": "Edgar21",
+            "phone": "55181620",
+            "date": "2003-04-21"
+        },
+        {
+            "id": 5,
+            "login": "edgars",
+            "password": "Edgars",
+            "phone": "55181620",
+            "date": "2003-04-21"
+        }
+    ]
 }

@@ -1,14 +1,13 @@
 from db.User import UserClass
 from validators.register_vals import val_date, val_login, val_password, val_phone
 from config import ADMINS
-from db.Cars import Cars
-
-
+from db.Cars import CarsClass
+from validators.cars_validator import create_at,car_name,car_model,car_description
 
 def admin_func():
     while True:
         print("""
-1. add car
+1. search car
 2. update car
 3. delete car
              """)
@@ -16,18 +15,30 @@ def admin_func():
         if choose == '1':
             print('Greq dzer naxntrac meqenayi anvanumy')
 
-            poisk = input('poisk cars name: -> ')
+            search = input('search cars name: -> ')
             while True:
-                car_data = Cars().get_cars_by_name(name=poisk)
+                car_data = CarsClass().get_cars_by_name(name=search)
                 if car_data:
                     print(car_data)
                     break
                 else:
                     print('nman anunov meqena goyutyun chuni porceq mek urish')
-                    poisk = input('krkin porcel: -> ')
+                    search = input('krkin porcel: -> ')
 
         elif choose == '2':
-            print('update car')
+
+            cars_date = input('date of cars: -> ')
+            create_at(msg=cars_date)
+
+            cars_name = input('car name: -> ')
+            car_name(msg=cars_name)
+
+            cars_model = input('car model: -> ')
+            car_model(msg=cars_model)
+
+            cars_decription = input('car description: -> ')
+            car_description(msg=cars_decription)
+            CarsClass().creator_new_cars(create_at=cars_date, name=car_name, model=cars_model, description=cars_decription)
             break
         elif choose == '3':
             print('delete car')
@@ -40,7 +51,7 @@ def login():
     login = input("greq dzer login: -> ")
     while True:
         if login in UserClass().get_user_logins():
-            password = input("greq dzer parol@")
+            password = input("greq dzer parol@: -> ")
             if password == UserClass().get_user_password_by_login(login):
                 if UserClass().get_user_by_login(login)['id'] in ADMINS:
                     admin_func()
